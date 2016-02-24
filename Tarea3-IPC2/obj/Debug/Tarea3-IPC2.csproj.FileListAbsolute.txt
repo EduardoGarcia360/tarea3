@@ -1,0 +1,9 @@
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\bin\Debug\Tarea3-IPC2.exe.config
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\bin\Debug\Tarea3-IPC2.exe
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\bin\Debug\Tarea3-IPC2.pdb
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\obj\Debug\Tarea3-IPC2.csprojResolveAssemblyReference.cache
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\obj\Debug\Tarea3_IPC2.Form1.resources
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\obj\Debug\Tarea3_IPC2.Properties.Resources.resources
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\obj\Debug\Tarea3-IPC2.csproj.GenerateResource.Cache
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\obj\Debug\Tarea3-IPC2.exe
+C:\E\Progra\VisualStudioProjects\Tarea3-IPC2\Tarea3-IPC2\obj\Debug\Tarea3-IPC2.pdb
