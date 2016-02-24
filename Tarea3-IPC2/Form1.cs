@@ -20,6 +20,8 @@ namespace Tarea3_IPC2
             conectar_database();
             conexion.llenarcombo_matricula(combobxMatricula);
             conexion.llenarcombo_matricula(combobxMatricula_Eliminar);
+            conexion.llenarcombo_cliente(combobxCod_Cliente);
+            conexion.llenarcombo_cliente(combobxCod_Cliente_Eliminar);
         }
 
         private void conectar_database()
@@ -175,7 +177,77 @@ namespace Tarea3_IPC2
             }
             else
             {
-                MessageBox.Show("ksd");
+                MessageBox.Show("Este registro ya ha sido eliminado");
+            }
+            cnn.Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var respuesta = MessageBox.Show("¿desea eliminar el registro?", "eliminando registro",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                string condicion =  "matricula = '" + combobxMatricula_Eliminar.Text + "'";
+                if (conexion.eliminar_registro("vehiculo",condicion))
+                {
+                    MessageBox.Show("Registro eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar registro");
+                }
+            }
+        }
+
+        private void btnActualizar_Cliente_Click(object sender, EventArgs e)
+        {
+            string codc = combobxCod_Cliente.Text;
+            string camp = combobxCampo_cliente.Text;
+            string nuev = txtNuevoDatoCliente.Text;
+            if (conexion.actualizar_cliente(codc, camp, nuev))
+            {
+                MessageBox.Show("Actualizacion exitosa");
+            }
+            else
+            {
+                MessageBox.Show("error al actualizar");
+            }
+        }
+
+        private void btnEliminar_Cliente_Click(object sender, EventArgs e)
+        {
+            var respuesta = MessageBox.Show("¿desea eliminar el registro?", "eliminando registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                string condicion = "cod_cliente = '" + combobxMatricula_Eliminar.Text + "'";
+                if (conexion.eliminar_registro("cliente", condicion))
+                {
+                    MessageBox.Show("Registro eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar registro");
+                }
+            }
+        }
+
+        private void combobxCod_Cliente_Eliminar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection cnn = new SqlConnection("Data Source=Edu-PC;Initial Catalog=venta_vehiculos;Integrated Security=True");
+            string script = "SELECT nit, nombre, apellido, direccion FROM cliente WHERE cod_cliente = '" + combobxMatricula_Eliminar.Text + "'";
+            SqlCommand cm = new SqlCommand(script, cnn);
+            cnn.Open();
+            SqlDataReader sdr = cm.ExecuteReader();
+            if (sdr.Read() == true)
+            {
+                lblNit.Text = "NIT: " + sdr["nit"].ToString();
+                lblNombre.Text = "Nombre: " + sdr["nombre"].ToString();
+                lblApellido.Text = "Apellido: " + sdr["apellido"].ToString();
+                lblDireccion.Text = "Direccion: " + sdr["direccion"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Este registro ya ha sido eliminado");
             }
             cnn.Close();
         }

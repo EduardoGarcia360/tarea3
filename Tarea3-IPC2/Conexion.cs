@@ -190,5 +190,89 @@ namespace Tarea3_IPC2
                 MessageBox.Show("no se lleno el combo " + ex.ToString());
             }
         }
+
+        public void llenarcombo_cliente(ComboBox cb)
+        {
+            SqlConnection conn;
+            try
+            {
+                using (conn = get_conexion())
+                {
+                    using (SqlCommand com = new SqlCommand())
+                    {
+                        com.Connection = conn;
+                        com.CommandType = System.Data.CommandType.Text;
+                        com.CommandText = "SELECT cod_cliente FROM cliente";
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            cb.Items.Add(dr["cod_cliente"].ToString());
+                        }
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se lleno el combo " + ex.ToString());
+            }
+        }
+
+        public bool eliminar_registro(string tabla, string condicion)
+        {
+            SqlConnection conn;
+            
+                using (conn = get_conexion())
+                {
+                    using (SqlCommand com = new SqlCommand())
+                    {
+                        com.Connection = conn;
+                        com.CommandType = System.Data.CommandType.Text;
+                        com.CommandText = "DELETE FROM " + tabla + " WHERE " + condicion;
+                        int i = com.ExecuteNonQuery();
+                        conn.Close();
+                        if (i > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                        
+                    }
+                }
+            
+        }
+
+        public bool actualizar_cliente(string codigo, string campo, string nuevo)
+        {
+            SqlConnection conn;
+            try
+            {
+                using (conn = get_conexion())
+                {
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = conn;
+                        command.CommandType = System.Data.CommandType.Text;
+                        command.CommandText = "UPDATE cliente"
+                            + " SET " + campo + "=@nuevo_valor"
+                            + " WHERE cod_cliente=@codigo";
+
+                        command.Parameters.Add("@codigo", System.Data.SqlDbType.VarChar).Value = codigo;
+                        command.Parameters.Add("@nuevo_valor", System.Data.SqlDbType.VarChar).Value = nuevo;
+                        
+
+                        return (command.ExecuteNonQuery() == 1);
+
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+        }
     }
 }

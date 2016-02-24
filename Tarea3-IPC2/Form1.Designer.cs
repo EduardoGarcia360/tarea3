@@ -92,6 +92,8 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNit = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -159,6 +161,7 @@
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblprecio
             // 
@@ -420,6 +423,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblNit);
+            this.tabPage2.Controls.Add(this.lblApellido);
             this.tabPage2.Controls.Add(this.txtApellido);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.btnEliminar_Cliente);
@@ -472,21 +477,23 @@
             // 
             // btnEliminar_Cliente
             // 
-            this.btnEliminar_Cliente.Location = new System.Drawing.Point(572, 338);
+            this.btnEliminar_Cliente.Location = new System.Drawing.Point(557, 344);
             this.btnEliminar_Cliente.Name = "btnEliminar_Cliente";
             this.btnEliminar_Cliente.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar_Cliente.TabIndex = 23;
             this.btnEliminar_Cliente.Text = "Eliminar";
             this.btnEliminar_Cliente.UseVisualStyleBackColor = true;
+            this.btnEliminar_Cliente.Click += new System.EventHandler(this.btnEliminar_Cliente_Click);
             // 
             // btnActualizar_Cliente
             // 
-            this.btnActualizar_Cliente.Location = new System.Drawing.Point(572, 187);
+            this.btnActualizar_Cliente.Location = new System.Drawing.Point(571, 169);
             this.btnActualizar_Cliente.Name = "btnActualizar_Cliente";
             this.btnActualizar_Cliente.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar_Cliente.TabIndex = 22;
             this.btnActualizar_Cliente.Text = "Actualizar";
             this.btnActualizar_Cliente.UseVisualStyleBackColor = true;
+            this.btnActualizar_Cliente.Click += new System.EventHandler(this.btnActualizar_Cliente_Click);
             // 
             // btnAgregar_Cliente
             // 
@@ -501,34 +508,35 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(613, 308);
+            this.lblDireccion.Location = new System.Drawing.Point(610, 319);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(66, 13);
+            this.lblDireccion.Size = new System.Drawing.Size(72, 13);
             this.lblDireccion.TabIndex = 20;
-            this.lblDireccion.Text = "DIRECCION";
+            this.lblDireccion.Text = "-DIRECCION-";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(444, 308);
+            this.lblNombre.Location = new System.Drawing.Point(444, 290);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(54, 13);
+            this.lblNombre.Size = new System.Drawing.Size(60, 13);
             this.lblNombre.TabIndex = 19;
-            this.lblNombre.Text = "NOMBRE";
+            this.lblNombre.Text = "-NOMBRE-";
             // 
             // combobxCod_Cliente_Eliminar
             // 
             this.combobxCod_Cliente_Eliminar.FormattingEnabled = true;
-            this.combobxCod_Cliente_Eliminar.Location = new System.Drawing.Point(595, 265);
+            this.combobxCod_Cliente_Eliminar.Location = new System.Drawing.Point(595, 247);
             this.combobxCod_Cliente_Eliminar.Name = "combobxCod_Cliente_Eliminar";
             this.combobxCod_Cliente_Eliminar.Size = new System.Drawing.Size(121, 21);
             this.combobxCod_Cliente_Eliminar.TabIndex = 18;
             this.combobxCod_Cliente_Eliminar.Text = "-Seleccione Cliente-";
+            this.combobxCod_Cliente_Eliminar.SelectedIndexChanged += new System.EventHandler(this.combobxCod_Cliente_Eliminar_SelectedIndexChanged);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(447, 274);
+            this.label24.Location = new System.Drawing.Point(447, 256);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(97, 13);
             this.label24.TabIndex = 17;
@@ -537,7 +545,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(447, 231);
+            this.label23.Location = new System.Drawing.Point(447, 213);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(106, 13);
             this.label23.TabIndex = 16;
@@ -545,7 +553,7 @@
             // 
             // txtNuevoDatoCliente
             // 
-            this.txtNuevoDatoCliente.Location = new System.Drawing.Point(601, 152);
+            this.txtNuevoDatoCliente.Location = new System.Drawing.Point(601, 129);
             this.txtNuevoDatoCliente.Name = "txtNuevoDatoCliente";
             this.txtNuevoDatoCliente.Size = new System.Drawing.Size(121, 20);
             this.txtNuevoDatoCliente.TabIndex = 15;
@@ -553,7 +561,13 @@
             // combobxCampo_cliente
             // 
             this.combobxCampo_cliente.FormattingEnabled = true;
-            this.combobxCampo_cliente.Location = new System.Drawing.Point(601, 110);
+            this.combobxCampo_cliente.Items.AddRange(new object[] {
+            "NIT",
+            "NOMBRE",
+            "APELLIDO",
+            "DIRECCION",
+            "TELEFONO"});
+            this.combobxCampo_cliente.Location = new System.Drawing.Point(601, 100);
             this.combobxCampo_cliente.Name = "combobxCampo_cliente";
             this.combobxCampo_cliente.Size = new System.Drawing.Size(121, 21);
             this.combobxCampo_cliente.TabIndex = 14;
@@ -571,7 +585,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(450, 152);
+            this.label22.Location = new System.Drawing.Point(450, 129);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(78, 13);
             this.label22.TabIndex = 12;
@@ -580,7 +594,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(447, 111);
+            this.label21.Location = new System.Drawing.Point(450, 100);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(45, 13);
             this.label21.TabIndex = 11;
@@ -712,6 +726,24 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(617, 290);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(65, 13);
+            this.lblApellido.TabIndex = 26;
+            this.lblApellido.Text = "-APELLIDO-";
+            // 
+            // lblNit
+            // 
+            this.lblNit.AutoSize = true;
+            this.lblNit.Location = new System.Drawing.Point(444, 319);
+            this.lblNit.Name = "lblNit";
+            this.lblNit.Size = new System.Drawing.Size(31, 13);
+            this.lblNit.TabIndex = 27;
+            this.lblNit.Text = "-NIT-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,6 +828,8 @@
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblNit;
     }
 }
 
