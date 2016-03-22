@@ -22,6 +22,8 @@ namespace Tarea3_IPC2
             conexion.llenarcombo_matricula(combobxMatricula_Eliminar);
             conexion.llenarcombo_cliente(combobxCod_Cliente);
             conexion.llenarcombo_cliente(combobxCod_Cliente_Eliminar);
+            conexion.llenarcombo_concesionario(combobxCodigo_Concesionario_Actualizar);
+            conexion.llenarcombo_concesionario(combobxCod_Conce_Eliminar);
         }
 
         private void conectar_database()
@@ -180,6 +182,7 @@ namespace Tarea3_IPC2
                 MessageBox.Show("Este registro ya ha sido eliminado");
             }
             cnn.Close();
+            dr.Close();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -219,7 +222,7 @@ namespace Tarea3_IPC2
             var respuesta = MessageBox.Show("¿desea eliminar el registro?", "eliminando registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta == DialogResult.Yes)
             {
-                string condicion = "cod_cliente = '" + combobxMatricula_Eliminar.Text + "'";
+                string condicion = "cod_cliente = '" + combobxCod_Cliente_Eliminar.Text + "'";
                 if (conexion.eliminar_registro("cliente", condicion))
                 {
                     MessageBox.Show("Registro eliminado");
@@ -234,12 +237,13 @@ namespace Tarea3_IPC2
         private void combobxCod_Cliente_Eliminar_SelectedIndexChanged(object sender, EventArgs e)
         {
             SqlConnection cnn = new SqlConnection("Data Source=Edu-PC;Initial Catalog=venta_vehiculos;Integrated Security=True");
-            string script = "SELECT nit, nombre, apellido, direccion FROM cliente WHERE cod_cliente = '" + combobxMatricula_Eliminar.Text + "'";
+            string script = "SELECT nit, nombre, apellido, direccion FROM cliente WHERE cod_cliente = '" + combobxCod_Cliente_Eliminar.Text + "'";
             SqlCommand cm = new SqlCommand(script, cnn);
             cnn.Open();
             SqlDataReader sdr = cm.ExecuteReader();
             if (sdr.Read() == true)
             {
+               
                 lblNit.Text = "NIT: " + sdr["nit"].ToString();
                 lblNombre.Text = "Nombre: " + sdr["nombre"].ToString();
                 lblApellido.Text = "Apellido: " + sdr["apellido"].ToString();
@@ -250,6 +254,93 @@ namespace Tarea3_IPC2
                 MessageBox.Show("Este registro ya ha sido eliminado");
             }
             cnn.Close();
+            sdr.Close();
+        }
+
+        private void btnAgregar_Concesionario_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre_Concesionario.Text))
+            {
+                errorProvider3.SetError(txtNombre_Concesionario, "Debe ingresar un Nombre");
+                txtNombre_Concesionario.Focus();
+                return;
+            }
+            errorProvider3.SetError(txtNombre_Concesionario, "");
+
+            if (string.IsNullOrEmpty(txtDireccion_Concesionario.Text))
+            {
+                errorProvider3.SetError(txtDireccion_Concesionario, "Debe ingresar una Direccion");
+                txtDireccion_Concesionario.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider3.SetError(txtDireccion_Concesionario, "");
+                string nombreCon = txtNombre_Concesionario.Text;
+                string direccCon = txtDireccion_Concesionario.Text;
+                if (conexion.Agregar_Concesionario(nombreCon, direccCon))
+                {
+                    MessageBox.Show("Concesionario agregado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al agregar concesionario");
+                }
+            }
+            
+        }
+
+        private void btnActualizar_Concesionario_Click(object sender, EventArgs e)
+        {
+            string codigo = combobxCodigo_Concesionario_Actualizar.Text;
+            string campo = combobxCampo_Concesionario.Text;
+            string nuevo = txtNuevoDato_Concesionario.Text;
+            if (conexion.Actualizar_Concesionario(codigo, campo, nuevo))
+            {
+                MessageBox.Show("Dato actualizado");
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar");
+            }
+        }
+
+        private void combobxCod_Conce_Eliminar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection cnn = new SqlConnection("Data Source=Edu-PC;Initial Catalog=venta_vehiculos;Integrated Security=True");
+            string script = "SELECT nombre, direccion FROM concesionario WHERE cod_concesionario = '" + combobxCod_Conce_Eliminar.Text + "'";
+            SqlCommand cm = new SqlCommand(script, cnn);
+            cnn.Open();
+            SqlDataReader sdr = cm.ExecuteReader();
+            if (sdr.Read() == true)
+            {
+
+                lblNombre_Concesionario.Text = "Nombre: " + sdr["nombre"].ToString();
+                lblDireccion_Concesionario.Text = "Direccion: " + sdr["direccion"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Este registro ya ha sido eliminado");
+            }
+            cnn.Close();
+            sdr.Close();
+        }
+
+        private void btnEliminar_Concesionario_Click(object sender, EventArgs e)
+        {
+            var respuesta = MessageBox.Show("¿desea eliminar el registro?", "eliminando registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                string condicion = "cod_concesionario = '" + combobxCod_Conce_Eliminar.Text + "'";
+                if (conexion.eliminar_registro("concesionario", condicion))
+                {
+                    MessageBox.Show("Registro eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar registro");
+                }
+            }
         }
 
     }

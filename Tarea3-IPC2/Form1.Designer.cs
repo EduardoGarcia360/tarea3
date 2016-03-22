@@ -61,6 +61,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblNit = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.btnEliminar_Cliente = new System.Windows.Forms.Button();
@@ -92,13 +94,34 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblNit = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtNombre_Concesionario = new System.Windows.Forms.TextBox();
+            this.txtDireccion_Concesionario = new System.Windows.Forms.TextBox();
+            this.btnAgregar_Concesionario = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.combobxCodigo_Concesionario_Actualizar = new System.Windows.Forms.ComboBox();
+            this.combobxCampo_Concesionario = new System.Windows.Forms.ComboBox();
+            this.txtNuevoDato_Concesionario = new System.Windows.Forms.TextBox();
+            this.btnActualizar_Concesionario = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.combobxCod_Conce_Eliminar = new System.Windows.Forms.ComboBox();
+            this.lblNombre_Concesionario = new System.Windows.Forms.Label();
+            this.lblDireccion_Concesionario = new System.Windows.Forms.Label();
+            this.btnEliminar_Concesionario = new System.Windows.Forms.Button();
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -459,6 +482,24 @@
             this.tabPage2.Text = "Cliente";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblNit
+            // 
+            this.lblNit.AutoSize = true;
+            this.lblNit.Location = new System.Drawing.Point(444, 319);
+            this.lblNit.Name = "lblNit";
+            this.lblNit.Size = new System.Drawing.Size(31, 13);
+            this.lblNit.TabIndex = 27;
+            this.lblNit.Text = "-NIT-";
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(617, 290);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(65, 13);
+            this.lblApellido.TabIndex = 26;
+            this.lblApellido.Text = "-APELLIDO-";
+            // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(141, 158);
@@ -693,6 +734,26 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnEliminar_Concesionario);
+            this.tabPage3.Controls.Add(this.lblDireccion_Concesionario);
+            this.tabPage3.Controls.Add(this.lblNombre_Concesionario);
+            this.tabPage3.Controls.Add(this.combobxCod_Conce_Eliminar);
+            this.tabPage3.Controls.Add(this.label34);
+            this.tabPage3.Controls.Add(this.label33);
+            this.tabPage3.Controls.Add(this.btnActualizar_Concesionario);
+            this.tabPage3.Controls.Add(this.txtNuevoDato_Concesionario);
+            this.tabPage3.Controls.Add(this.combobxCampo_Concesionario);
+            this.tabPage3.Controls.Add(this.combobxCodigo_Concesionario_Actualizar);
+            this.tabPage3.Controls.Add(this.label32);
+            this.tabPage3.Controls.Add(this.label31);
+            this.tabPage3.Controls.Add(this.label30);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.btnAgregar_Concesionario);
+            this.tabPage3.Controls.Add(this.txtDireccion_Concesionario);
+            this.tabPage3.Controls.Add(this.txtNombre_Concesionario);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.label27);
+            this.tabPage3.Controls.Add(this.label26);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(783, 382);
@@ -726,23 +787,190 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
-            // lblApellido
+            // label26
             // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(617, 290);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(65, 13);
-            this.lblApellido.TabIndex = 26;
-            this.lblApellido.Text = "-APELLIDO-";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(48, 37);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(137, 13);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "NUEVO CONCESIONARIO";
             // 
-            // lblNit
+            // label27
             // 
-            this.lblNit.AutoSize = true;
-            this.lblNit.Location = new System.Drawing.Point(444, 319);
-            this.lblNit.Name = "lblNit";
-            this.lblNit.Size = new System.Drawing.Size(31, 13);
-            this.lblNit.TabIndex = 27;
-            this.lblNit.Text = "-NIT-";
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(60, 81);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(54, 13);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "NOMBRE";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(63, 128);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(66, 13);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "DIRECCION";
+            // 
+            // txtNombre_Concesionario
+            // 
+            this.txtNombre_Concesionario.Location = new System.Drawing.Point(158, 74);
+            this.txtNombre_Concesionario.Name = "txtNombre_Concesionario";
+            this.txtNombre_Concesionario.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre_Concesionario.TabIndex = 3;
+            // 
+            // txtDireccion_Concesionario
+            // 
+            this.txtDireccion_Concesionario.Location = new System.Drawing.Point(158, 125);
+            this.txtDireccion_Concesionario.Name = "txtDireccion_Concesionario";
+            this.txtDireccion_Concesionario.Size = new System.Drawing.Size(100, 20);
+            this.txtDireccion_Concesionario.TabIndex = 4;
+            // 
+            // btnAgregar_Concesionario
+            // 
+            this.btnAgregar_Concesionario.Location = new System.Drawing.Point(110, 196);
+            this.btnAgregar_Concesionario.Name = "btnAgregar_Concesionario";
+            this.btnAgregar_Concesionario.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar_Concesionario.TabIndex = 5;
+            this.btnAgregar_Concesionario.Text = "Agregar";
+            this.btnAgregar_Concesionario.UseVisualStyleBackColor = true;
+            this.btnAgregar_Concesionario.Click += new System.EventHandler(this.btnAgregar_Concesionario_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(501, 12);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(114, 13);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "ACTUALIZAR DATOS";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(425, 56);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(141, 13);
+            this.label30.TabIndex = 7;
+            this.label30.Text = "CODIGO CONCESIONARIO";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(425, 100);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(45, 13);
+            this.label31.TabIndex = 8;
+            this.label31.Text = "CAMPO";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(425, 142);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(78, 13);
+            this.label32.TabIndex = 9;
+            this.label32.Text = "NUEVO DATO";
+            // 
+            // combobxCodigo_Concesionario_Actualizar
+            // 
+            this.combobxCodigo_Concesionario_Actualizar.FormattingEnabled = true;
+            this.combobxCodigo_Concesionario_Actualizar.Location = new System.Drawing.Point(613, 53);
+            this.combobxCodigo_Concesionario_Actualizar.Name = "combobxCodigo_Concesionario_Actualizar";
+            this.combobxCodigo_Concesionario_Actualizar.Size = new System.Drawing.Size(121, 21);
+            this.combobxCodigo_Concesionario_Actualizar.TabIndex = 10;
+            this.combobxCodigo_Concesionario_Actualizar.Text = "-Seleccione Codigo-";
+            // 
+            // combobxCampo_Concesionario
+            // 
+            this.combobxCampo_Concesionario.FormattingEnabled = true;
+            this.combobxCampo_Concesionario.Items.AddRange(new object[] {
+            "Nombre",
+            "Direccion"});
+            this.combobxCampo_Concesionario.Location = new System.Drawing.Point(613, 97);
+            this.combobxCampo_Concesionario.Name = "combobxCampo_Concesionario";
+            this.combobxCampo_Concesionario.Size = new System.Drawing.Size(121, 21);
+            this.combobxCampo_Concesionario.TabIndex = 11;
+            this.combobxCampo_Concesionario.Text = "¿Que Campo?";
+            // 
+            // txtNuevoDato_Concesionario
+            // 
+            this.txtNuevoDato_Concesionario.Location = new System.Drawing.Point(613, 139);
+            this.txtNuevoDato_Concesionario.Name = "txtNuevoDato_Concesionario";
+            this.txtNuevoDato_Concesionario.Size = new System.Drawing.Size(121, 20);
+            this.txtNuevoDato_Concesionario.TabIndex = 12;
+            // 
+            // btnActualizar_Concesionario
+            // 
+            this.btnActualizar_Concesionario.Location = new System.Drawing.Point(540, 171);
+            this.btnActualizar_Concesionario.Name = "btnActualizar_Concesionario";
+            this.btnActualizar_Concesionario.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar_Concesionario.TabIndex = 13;
+            this.btnActualizar_Concesionario.Text = "Actualizar";
+            this.btnActualizar_Concesionario.UseVisualStyleBackColor = true;
+            this.btnActualizar_Concesionario.Click += new System.EventHandler(this.btnActualizar_Concesionario_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(501, 215);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(150, 13);
+            this.label33.TabIndex = 14;
+            this.label33.Text = "ELIMINAR CONCESIONARIO";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(437, 254);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(141, 13);
+            this.label34.TabIndex = 15;
+            this.label34.Text = "CODIGO CONCESIONARIO";
+            // 
+            // combobxCod_Conce_Eliminar
+            // 
+            this.combobxCod_Conce_Eliminar.FormattingEnabled = true;
+            this.combobxCod_Conce_Eliminar.Location = new System.Drawing.Point(610, 254);
+            this.combobxCod_Conce_Eliminar.Name = "combobxCod_Conce_Eliminar";
+            this.combobxCod_Conce_Eliminar.Size = new System.Drawing.Size(121, 21);
+            this.combobxCod_Conce_Eliminar.TabIndex = 16;
+            this.combobxCod_Conce_Eliminar.Text = "-Seleccione Codigo-";
+            this.combobxCod_Conce_Eliminar.SelectedIndexChanged += new System.EventHandler(this.combobxCod_Conce_Eliminar_SelectedIndexChanged);
+            // 
+            // lblNombre_Concesionario
+            // 
+            this.lblNombre_Concesionario.AutoSize = true;
+            this.lblNombre_Concesionario.Location = new System.Drawing.Point(400, 297);
+            this.lblNombre_Concesionario.Name = "lblNombre_Concesionario";
+            this.lblNombre_Concesionario.Size = new System.Drawing.Size(50, 13);
+            this.lblNombre_Concesionario.TabIndex = 17;
+            this.lblNombre_Concesionario.Text = "-Nombre-";
+            // 
+            // lblDireccion_Concesionario
+            // 
+            this.lblDireccion_Concesionario.AutoSize = true;
+            this.lblDireccion_Concesionario.Location = new System.Drawing.Point(573, 297);
+            this.lblDireccion_Concesionario.Name = "lblDireccion_Concesionario";
+            this.lblDireccion_Concesionario.Size = new System.Drawing.Size(58, 13);
+            this.lblDireccion_Concesionario.TabIndex = 18;
+            this.lblDireccion_Concesionario.Text = "-Direccion-";
+            // 
+            // btnEliminar_Concesionario
+            // 
+            this.btnEliminar_Concesionario.Location = new System.Drawing.Point(556, 342);
+            this.btnEliminar_Concesionario.Name = "btnEliminar_Concesionario";
+            this.btnEliminar_Concesionario.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar_Concesionario.TabIndex = 19;
+            this.btnEliminar_Concesionario.Text = "Eliminar";
+            this.btnEliminar_Concesionario.UseVisualStyleBackColor = true;
+            this.btnEliminar_Concesionario.Click += new System.EventHandler(this.btnEliminar_Concesionario_Click);
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
             // 
             // Form1
             // 
@@ -757,8 +985,11 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -830,6 +1061,27 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNit;
+        private System.Windows.Forms.Button btnEliminar_Concesionario;
+        private System.Windows.Forms.Label lblDireccion_Concesionario;
+        private System.Windows.Forms.Label lblNombre_Concesionario;
+        private System.Windows.Forms.ComboBox combobxCod_Conce_Eliminar;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button btnActualizar_Concesionario;
+        private System.Windows.Forms.TextBox txtNuevoDato_Concesionario;
+        private System.Windows.Forms.ComboBox combobxCampo_Concesionario;
+        private System.Windows.Forms.ComboBox combobxCodigo_Concesionario_Actualizar;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btnAgregar_Concesionario;
+        private System.Windows.Forms.TextBox txtDireccion_Concesionario;
+        private System.Windows.Forms.TextBox txtNombre_Concesionario;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
     }
 }
 

@@ -218,6 +218,33 @@ namespace Tarea3_IPC2
             }
         }
 
+        public void llenarcombo_concesionario(ComboBox cb)
+        {
+            SqlConnection conn;
+            try
+            {
+                using (conn = get_conexion())
+                {
+                    using (SqlCommand com = new SqlCommand())
+                    {
+                        com.Connection = conn;
+                        com.CommandType = System.Data.CommandType.Text;
+                        com.CommandText = "SELECT cod_concesionario FROM concesionario";
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            cb.Items.Add(dr["cod_concesionario"].ToString());
+                        }
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("no se lleno el combo " + ex.ToString());
+            }
+        }
+
         public bool eliminar_registro(string tabla, string condicion)
         {
             SqlConnection conn;
@@ -266,6 +293,62 @@ namespace Tarea3_IPC2
 
                         return (command.ExecuteNonQuery() == 1);
 
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+        }
+
+        public bool Actualizar_Concesionario(string codigo, string campo, string nuevo)
+        {
+            SqlConnection conn;
+            try
+            {
+                using (conn = get_conexion())
+                {
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = conn;
+                        command.CommandType = System.Data.CommandType.Text;
+                        command.CommandText = "UPDATE concesionario"
+                            + " SET " + campo + "=@nuevo_valor"
+                            + " WHERE cod_concesionario=@codigo";
+                        command.Parameters.Add("@nuevo_valor", System.Data.SqlDbType.VarChar).Value = nuevo;
+                        command.Parameters.Add("@codigo", System.Data.SqlDbType.VarChar).Value = codigo;
+                        return (command.ExecuteNonQuery() == 1);
+
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+        }
+
+        public bool Agregar_Concesionario(string nombre, string direccion)
+        {
+            SqlConnection conn;
+            try
+            {
+                using (conn = get_conexion())
+                {
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                            command.Connection = conn;
+                            command.CommandType = System.Data.CommandType.Text;
+                            command.CommandText = "INSERT INTO concesionario"
+                                + "(nombre, direccion)"
+                                + " VALUES (@nombre, @direccion)";
+
+                            command.Parameters.Add("@nombre", System.Data.SqlDbType.VarChar).Value = nombre;
+                            command.Parameters.Add("@direccion", System.Data.SqlDbType.VarChar).Value = direccion;
+
+                            return (command.ExecuteNonQuery() == 1);
+                       
                     }
                 }
             }
